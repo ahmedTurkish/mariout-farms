@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>مزارع مريوط - منتجات طازجة من أرضنا</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <!-- Header -->
+  <header>
+    <nav class="navbar">
+      <a href="/" class="logo">
+        <img src="assets/logo/MIAD.png" alt="Mariot Farms Logo">
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="index.html#hero">الرئيسية</a></li>
+        <li><a href="about.html">من نحن</a></li>
+        <li><a href="store.html">منتجاتنا</a></li>
+        <li><a href="contact.html">تواصل معنا</a></li>
+      </ul>
+
+      <div class="datetime-container">
+        <div class="time-day">
+          <div class="time" id="time">00:00:00</div>
+          <div class="separator"></div>
+          <div class="day" id="day">Monday</div>
+        </div>
+        <div class="date" id="date">January 1, 2025</div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="hero" class="hero-slider">
+    <div class="slides">
+      <div class="slide active">
+        <img src="assets/slides/export.jpg" alt="التصدير">
+        <div class="slide-content">
+          <h2>خدمات التصدير</h2>
+          <p id="hero-message">منتجات طبيعية طازجة من مزارعنا إلى مائدتكم مباشرة.</p>
+        </div>
+      </div>
+
+      <div class="slide">
+        <img src="assets/slides/solar.jpg" alt="خدمات الطاقة الشمسية">
+        <div class="slide-content">
+          <h2>خدمات الطاقة الشمسية</h2>
+          <p>حلول متكاملة للطاقة النظيفة لتشغيل مزارعك بأعلى كفاءة.</p>
+        </div>
+      </div>
+
+      <div class="slide">
+        <img src="assets/slides/wells.jpg" alt="حفر الآبار">
+        <div class="slide-content">
+          <h2>حفر الآبار</h2>
+          <p>نوفر أحدث تقنيات الحفر لتأمين مصادر المياه لمزارعك.</p>
+        </div>
+      </div>
+
+      <div class="slide">
+        <img src="assets/slides/reclamation.jpg" alt="استصلاح الأراضي">
+        <div class="slide-content">
+          <h2>استصلاح الأراضي</h2>
+          <p>نحول الأراضي الصحراوية إلى مزارع منتجة باستخدام أحدث الأساليب الزراعية.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- أزرار التنقل -->
+    <button class="prev">&#10094;</button>
+    <button class="next">&#10095;</button>
+
+    <!-- النقاط -->
+    <div class="dots"></div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="about-section">
+    <div class="container">
+      <h2>عن مزارعنا</h2>
+      <p>
+        في مزارع مريوط، نؤمن بأن الجودة تبدأ من الأرض. نحن نزرع بحب وشغف لنقدم لكم أفضل المحاصيل والمنتجات الطبيعية.
+      </p>
+      <a href="about.html" class="btn-outline">اقرأ المزيد</a>
+    </div>
+ </section>
+
+<!-- Vision & Mission Section -->
+<section id="vision" class="vision-section">
+  <div class="container">
+    <h2>رؤيتنا ورسالتنا</h2>
+    <div class="vision-grid">
+      <div class="vision-card">
+        <h3>رؤيتنا</h3>
+        <p>
+          في <strong>مزارع مريوط</strong>، نطمح إلى أن نكون رواد الزراعة المستدامة 
+          في مصر والمنطقة العربية، من خلال تقديم منتجات طبيعية وصحية 
+          تُزرع بأساليب حديثة تحافظ على البيئة وتدعم التنمية المجتمعية.
+        </p>
+      </div>
+      <div class="vision-card">
+        <h3>رسالتنا</h3>
+        <p>
+          نسعى لتوفير غذاء آمن وعالي الجودة يعتمد على ممارسات زراعية مسؤولة، 
+          تجمع بين خبرة الماضي وتقنيات المستقبل، لضمان صحة الإنسان 
+          واستدامة مواردنا الطبيعية.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <!-- Contact -->
+  <section id="contact" class="contact-section">
+    <div class="container">
+      <h2>تواصل معنا</h2>
+      <p>
+        للاستفسارات والطلبات، تواصل معنا عبر البريد الإلكتروني:
+        <a href="mailto:info@marioutfarms.com">info@marioutfarms.com</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 جميع الحقوق محفوظة لمزارع مريوط.</p>
+    </div>
+  </footer>
+
+  <!-- Scroll Top Button -->
+  <div class="scroll-top" id="scrollTop">
+    <i class="fas fa-arrow-up"></i>
+  </div>
+
+  <!-- الوقت والتاريخ -->
+  <script>
+    function updateDateTime() {
+      const now = new Date();
+
+      const hours = String(now.getHours()).padStart(2, '0');
+      const minutes = String(now.getMinutes()).padStart(2, '0');
+      const seconds = String(now.getSeconds()).padStart(2, '0');
+      document.getElementById('time').textContent = `${hours}:${minutes}:${seconds}`;
+
+      const options = { year: 'numeric', month: 'long', day: 'numeric' };
+      document.getElementById('date').textContent = now.toLocaleDateString('en-US', options);
+
+      const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+      document.getElementById('day').textContent = days[now.getDay()];
+    }
+
+    updateDateTime();
+    setInterval(updateDateTime, 1000);
+  </script>
+
+  <!-- تغيير العبارات -->
+  <script>
+    const messages = [
+      "منتجات طبيعية طازجة من مزارعنا إلى مائدتكم مباشرة.",
+      "نزرع بحب لنقدم لكم الأفضل دائمًا.",
+      "جودة مضمونة من أرض مريوط الخصبة.",
+      "الخضروات والفواكه الطازجة يوميًا.",
+      "من المزرعة إلى باب منزلك!"
+    ];
+
+    let index = 0;
+    const messageElement = document.getElementById("hero-message");
+
+    setInterval(() => {
+      index = (index + 1) % messages.length;
+      messageElement.textContent = messages[index];
+    }, 3000);
+  </script>
+
+  <!-- السلايدر -->
+  <script>
+    const slides = document.querySelectorAll(".slide");
+    const prevBtn = document.querySelector(".prev");
+    const nextBtn = document.querySelector(".next");
+    const dotsContainer = document.querySelector(".dots");
+
+    let currentIndex = 0;
+
+    // إنشاء النقاط
+    slides.forEach((_, i) => {
+      const dot = document.createElement("span");
+      dot.classList.add("dot");
+      if (i === 0) dot.classList.add("active");
+      dot.addEventListener("click", () => showSlide(i));
+      dotsContainer.appendChild(dot);
+    });
+
+    const dots = document.querySelectorAll(".dot");
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.toggle("active", i === index);
+        dots[i].classList.toggle("active", i === index);
+      });
+      currentIndex = index;
+    }
+
+    prevBtn.addEventListener("click", () => {
+      const index = (currentIndex - 1 + slides.length) % slides.length;
+      showSlide(index);
+    });
+
+    nextBtn.addEventListener("click", () => {
+      const index = (currentIndex + 1) % slides.length;
+      showSlide(index);
+    });
+
+    // تشغيل تلقائي
+    setInterval(() => {
+      const index = (currentIndex + 1) % slides.length;
+      showSlide(index);
+    }, 5000);
+  </script>
+
+  <!-- زر الصعود للأعلى -->
+  <script>
+    const scrollTopBtn = document.getElementById("scrollTop");
+    window.addEventListener("scroll", () => {
+      scrollTopBtn.classList.toggle("active", window.scrollY > 200);
+    });
+    scrollTopBtn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  </script>
+</body>
+</html>

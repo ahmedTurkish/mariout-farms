@@ -1,0 +1,328 @@
+/* ================================
+   إعدادات عامة
+================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Share Tech Mono', 'Cairo', sans-serif;
+}
+
+body {
+  background-color: #f8f9f4;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* ================================
+   الشريط العلوي (Navbar)
+================================ */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #2e7d32;
+  color: #fff;
+  padding: 0.8rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo img {
+  height: 55px;
+  width: auto;
+  transition: transform 0.3s ease;
+}
+
+.logo:hover img {
+  transform: scale(1.05);
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #c8e6c9;
+}
+
+/* الوقت والتاريخ */
+.datetime-container {
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.time {
+  font-size: 1.2rem;
+  color: #fff;
+}
+
+.date {
+  color: #c8e6c9;
+}
+
+/* ================================
+   قسم البطل (Hero Slider)
+================================ */
+.hero-slider {
+  position: relative;
+  overflow: hidden;
+  height: 85vh;
+}
+
+.slide {
+  display: none;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.slide.active {
+  display: block;
+  animation: fadeIn 1s ease;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(70%);
+}
+
+.slide-content {
+  position: absolute;
+  bottom: 20%;
+  right: 5%;
+  color: black;
+  max-width: 600px;
+  animation: fadeUp 1s ease;
+}
+
+.slide-content h2 {
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.slide-content p {
+  font-size: 1.2rem;
+}
+
+/* أزرار السلايدر */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 1rem;
+  color: white;
+  font-weight: bold;
+  font-size: 2rem;
+  user-select: none;
+  transition: 0.3s;
+}
+
+.prev:hover, .next:hover {
+  color: #a5d6a7;
+}
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}
+
+/* النقاط */
+.dots {
+  text-align: center;
+  position: absolute;
+  bottom: 15px;
+  width: 100%;
+}
+
+.dot {
+  height: 12px;
+  width: 12px;
+  margin: 0 4px;
+  background-color: #ccc;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.3s;
+  cursor: pointer;
+}
+
+.dot.active, .dot:hover {
+  background-color: #4caf50;
+}
+
+/* ================================
+   قسم من نحن
+================================ */
+.about-section {
+  background: #fff;
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.about-section h2 {
+  color: #2e7d32;
+  margin-bottom: 1rem;
+}
+
+.about-section p {
+  max-width: 700px;
+  margin: 0 auto 1.5rem;
+}
+
+.btn-outline {
+  border: 2px solid #2e7d32;
+  padding: 0.5rem 1.5rem;
+  color: #2e7d32;
+  text-decoration: none;
+  transition: all 0.3s;
+  border-radius: 30px;
+}
+
+.btn-outline:hover {
+  background: #2e7d32;
+  color: #fff;
+}
+
+/* ================================
+   section
+================================ */
+.vision-section {
+  background-color: #f5f6f7;
+  padding: 80px 0;
+  text-align: center;
+}
+
+.vision-section h2 {
+  font-size: 2em;
+  color: var(--accent);
+  margin-bottom: 40px;
+}
+
+.vision-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  justify-content: center;
+  align-items: start;
+}
+
+.vision-card {
+  background: #fff;
+  border-radius: var(--radius);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  padding: 30px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.vision-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+}
+
+.vision-card h3 {
+  color: var(--accent);
+  font-size: 1.4em;
+  margin-bottom: 15px;
+}
+
+.vision-card p {
+  color: #444;
+  line-height: 1.8;
+  font-size: 1.05em;
+}
+
+
+/* ================================
+   قسم التواصل
+================================ */
+.products-section .text-center {
+  margin-top: 40px; /* يمكنك زيادة الرقم لإنزاله أكثر */
+}
+.contact-section {
+  background: #fff;
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.contact-section h2 {
+  color: #2e7d32;
+  margin-bottom: 1rem;
+}
+
+.contact-section a {
+  color: #388e3c;
+  text-decoration: none;
+}
+
+.contact-section a:hover {
+  text-decoration: underline;
+}
+
+/* ================================
+   الفوتر
+================================ */
+footer {
+  background: #2e7d32;
+  color: #fff;
+  text-align: center;
+  padding: 1rem 0;
+}
+
+/* ================================
+   زر الصعود للأعلى
+================================ */
+.scroll-top {
+  position: fixed;
+  bottom: 60px;
+  left: 25px;
+  background: #2e7d32;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 30%;
+  cursor: pointer;
+  opacity: 0;
+  transition: all 0.4s ease;
+  font-size: 1.2rem;
+}
+
+.scroll-top.active {
+  opacity: 1;
+  transform: translateY(-10px);
+}
+
+/* ================================
+   الحركات (Animations)
+================================ */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
