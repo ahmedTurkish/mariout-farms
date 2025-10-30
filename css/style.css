@@ -31,11 +31,12 @@ body {
   z-index: 1000;
 }
 
+/* الشعار */
 .logo img {
   height: 50px;
 }
 
-/* ====== روابط التنقل ====== */
+/* الروابط */
 .nav-links {
   list-style: none;
   display: flex;
@@ -55,7 +56,7 @@ body {
   color: #d9ffd9;
 }
 
-/* ====== زر القائمة ====== */
+/* الزر */
 .menu-toggle {
   background: none;
   border: none;
@@ -63,43 +64,39 @@ body {
   font-size: 26px;
   cursor: pointer;
   display: none; /* يظهر فقط في الموبايل */
+  order: -1; /* ← هنا السر: يجعل الزر يذهب لأقصى اليسار */
+  margin-right: auto; /* يدفعه إلى اليسار */
 }
 
-/* ====== الوقت والتاريخ ====== */
+/* الوقت والتاريخ */
 .datetime-container {
   font-size: 14px;
   text-align: right;
 }
 
-/* ====== تصميم الموبايل ====== */
+/* تصميم الموبايل */
 @media (max-width: 768px) {
-  /* إظهار الزر */
   .menu-toggle {
     display: block;
-    order: -1;
-    margin-right: auto;
   }
 
-  /* إخفاء الوقت */
   .datetime-container {
     display: none;
   }
 
-  /* إخفاء القائمة بشكل افتراضي */
   .nav-links {
     display: none;
     flex-direction: column;
     background-color: #2f8f4a;
     width: 100%;
     position: absolute;
-    top: 60px; /* تحت الشريط */
+    top: 60px;
     left: 0;
     text-align: center;
     padding: 10px 0;
     z-index: 999;
   }
 
-  /* عند تفعيل القائمة */
   .nav-links.active {
     display: flex;
   }
@@ -108,6 +105,7 @@ body {
     margin: 10px 0;
   }
 }
+
 
 
 /* ================================
@@ -365,6 +363,7 @@ footer {
     transform: translateY(0);
   }
 }
+
 
 
 
