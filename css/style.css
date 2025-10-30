@@ -29,14 +29,13 @@ body {
   position: sticky;
   top: 0;
   z-index: 1000;
+  flex-direction: row-reverse; /* هذا يجعل الترتيب عادي رغم RTL */
 }
 
-/* الشعار */
 .logo img {
   height: 50px;
 }
 
-/* الروابط */
 .nav-links {
   list-style: none;
   display: flex;
@@ -61,14 +60,13 @@ body {
   background: none;
   border: none;
   color: white;
-  font-size: 26px;
+  font-size: 28px;
   cursor: pointer;
-  display: none; /* يظهر فقط في الموبايل */
-  order: -1; /* ← هنا السر: يجعل الزر يذهب لأقصى اليسار */
-  margin-right: auto; /* يدفعه إلى اليسار */
+  display: none;
+  margin-left: auto; /* ← يجعل الزر على أقصى اليسار فعليًا */
 }
 
-/* الوقت والتاريخ */
+/* الوقت */
 .datetime-container {
   font-size: 14px;
   text-align: right;
@@ -105,8 +103,6 @@ body {
     margin: 10px 0;
   }
 }
-
-
 
 /* ================================
    قسم البطل (Hero Slider)
@@ -363,6 +359,7 @@ footer {
     transform: translateY(0);
   }
 }
+
 
 
 
