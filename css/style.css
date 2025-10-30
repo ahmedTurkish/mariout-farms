@@ -89,33 +89,45 @@ body {
   .nav-links {
     display: none;
     flex-direction: column;
-    align-items: flex-end; /* ← محاذاة العناصر لليمين */
+    align-items: flex-start;
     background-color: #2f8f4a;
-    width: 100%;
     position: absolute;
     top: 60px;
-    right: 0;
-    padding: 15px 20px;
-    z-index: 9999;
+    left: 15px; /* يجعل القائمة أسفل الزر مباشرة */
+    width: 220px; /* ← العرض المستطيلي */
+    border-radius: 10px;
+    padding: 15px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    border-top: 1px solid #3fbf6a;
+    z-index: 9999;
   }
 
   .nav-links.active {
     display: flex;
-    animation: slideDown 0.3s ease-out forwards;
+    animation: fadeIn 0.3s ease-out forwards;
   }
 
   .nav-links li {
-    margin: 12px 0;
+    width: 100%;
+    margin: 10px 0;
   }
 
-  @keyframes slideDown {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
+  .nav-links li a {
+    display: block;
+    width: 100%;
+    padding: 8px 10px;
+    border-radius: 6px;
+    transition: 0.3s;
+  }
+
+  .nav-links li a:hover {
+    background-color: #3fbf6a;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
   }
 }
-
 /* ================================
    قسم البطل (Hero Slider)
 ================================ */
@@ -371,6 +383,7 @@ footer {
     transform: translateY(0);
   }
 }
+
 
 
 
