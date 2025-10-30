@@ -17,8 +17,7 @@ body {
 /* ================================
    الشريط العلوي (Navbar)
 ================================ */
-/* ====== Navbar الأساسية ====== */
-/* ====== Navbar الأساسية ====== */
+/* شريط التنقل */
 .navbar {
   display: flex;
   align-items: center;
@@ -29,13 +28,14 @@ body {
   position: sticky;
   top: 0;
   z-index: 1000;
-  flex-direction: row-reverse; /* هذا يجعل الترتيب عادي رغم RTL */
 }
 
+/* اللوجو */
 .logo img {
   height: 50px;
 }
 
+/* الروابط */
 .nav-links {
   list-style: none;
   display: flex;
@@ -55,7 +55,7 @@ body {
   color: #d9ffd9;
 }
 
-/* الزر */
+/* زر القائمة */
 .menu-toggle {
   background: none;
   border: none;
@@ -63,16 +63,19 @@ body {
   font-size: 28px;
   cursor: pointer;
   display: none;
-  margin-left: auto; /* ← يجعل الزر على أقصى اليسار فعليًا */
+  position: absolute;
+  left: 15px; /* الزر في أقصى اليسار */
+  top: 15px;
+  z-index: 1001;
 }
 
-/* الوقت */
+/* الوقت والتاريخ */
 .datetime-container {
   font-size: 14px;
   text-align: right;
 }
 
-/* تصميم الموبايل */
+/* للموبايل */
 @media (max-width: 768px) {
   .menu-toggle {
     display: block;
@@ -359,6 +362,7 @@ footer {
     transform: translateY(0);
   }
 }
+
 
 
 
