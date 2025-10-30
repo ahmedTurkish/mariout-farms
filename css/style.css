@@ -32,7 +32,6 @@ body {
 .logo img {
   height: 55px;
   width: auto;
-  border-radius: var(--radius
   transition: transform 0.3s ease;
 }
 
@@ -327,4 +326,5 @@ footer {
     transform: translateY(0);
   }
 }
+
 
