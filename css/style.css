@@ -18,6 +18,7 @@ body {
    الشريط العلوي (Navbar)
 ================================ */
 /* شريط التنقل */
+/* شريط التنقل */
 .navbar {
   display: flex;
   align-items: center;
@@ -28,6 +29,7 @@ body {
   position: sticky;
   top: 0;
   z-index: 1000;
+  direction: rtl; /* لضبط الترتيب العربي */
 }
 
 /* اللوجو */
@@ -64,7 +66,7 @@ body {
   cursor: pointer;
   display: none;
   position: absolute;
-  left: 15px; /* الزر في أقصى اليسار */
+  left: 15px; /* ← يثبت الزر في أقصى اليسار */
   top: 15px;
   z-index: 1001;
 }
@@ -72,10 +74,10 @@ body {
 /* الوقت والتاريخ */
 .datetime-container {
   font-size: 14px;
-  text-align: right;
+  text-align: left;
 }
 
-/* للموبايل */
+/* تصميم الموبايل */
 @media (max-width: 768px) {
   .menu-toggle {
     display: block;
@@ -88,24 +90,33 @@ body {
   .nav-links {
     display: none;
     flex-direction: column;
+    align-items: flex-end; /* ← المحاذاة إلى اليمين */
     background-color: #2f8f4a;
     width: 100%;
     position: absolute;
     top: 60px;
-    left: 0;
-    text-align: center;
-    padding: 10px 0;
-    z-index: 999;
+    right: 0; /* ← يجعلها تظهر من جهة اليمين */
+    padding: 15px 20px;
+    z-index: 9999;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    border-top: 1px solid #3fbf6a;
   }
 
   .nav-links.active {
     display: flex;
+    animation: slideDown 0.3s ease-out forwards;
   }
 
   .nav-links li {
-    margin: 10px 0;
+    margin: 12px 0;
+  }
+
+  @keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
   }
 }
+
 
 /* ================================
    قسم البطل (Hero Slider)
@@ -362,6 +373,7 @@ footer {
     transform: translateY(0);
   }
 }
+
 
 
 
