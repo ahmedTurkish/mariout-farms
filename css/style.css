@@ -18,10 +18,11 @@ body {
    الشريط العلوي (Navbar)
 ================================ */
 /* ====== Navbar الأساسية ====== */
+/* ====== Navbar الأساسية ====== */
 .navbar {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   background-color: #2f8f4a;
   color: white;
   padding: 10px 20px;
@@ -34,6 +35,7 @@ body {
   height: 50px;
 }
 
+/* ====== روابط التنقل ====== */
 .nav-links {
   list-style: none;
   display: flex;
@@ -53,17 +55,17 @@ body {
   color: #d9ffd9;
 }
 
-/* ====== زر القائمة في الموبايل ====== */
+/* ====== زر القائمة ====== */
 .menu-toggle {
-  display: none;
   background: none;
   border: none;
   color: white;
-  font-size: 24px;
+  font-size: 26px;
   cursor: pointer;
+  display: none; /* يظهر فقط في الموبايل */
 }
 
-/* ====== وقت وتاريخ ====== */
+/* ====== الوقت والتاريخ ====== */
 .datetime-container {
   font-size: 14px;
   text-align: right;
@@ -71,30 +73,42 @@ body {
 
 /* ====== تصميم الموبايل ====== */
 @media (max-width: 768px) {
+  /* إظهار الزر */
+  .menu-toggle {
+    display: block;
+    order: 3;
+    margin-left: auto;
+  }
+
+  /* إخفاء الوقت */
+  .datetime-container {
+    display: none;
+  }
+
+  /* إخفاء القائمة بشكل افتراضي */
   .nav-links {
     display: none;
     flex-direction: column;
-    position: absolute;
-    top: 70px;
-    right: 0;
     background-color: #2f8f4a;
     width: 100%;
-    padding: 10px 0;
+    position: absolute;
+    top: 60px; /* تحت الشريط */
+    left: 0;
     text-align: center;
+    padding: 10px 0;
+    z-index: 999;
   }
 
+  /* عند تفعيل القائمة */
   .nav-links.active {
     display: flex;
   }
 
-  .menu-toggle {
-    display: block;
-  }
-
-  .datetime-container {
-    display: none; /* إخفاء الوقت في الموبايل لتوفير المساحة */
+  .nav-links li {
+    margin: 10px 0;
   }
 }
+
 
 /* ================================
    قسم البطل (Hero Slider)
@@ -351,6 +365,7 @@ footer {
     transform: translateY(0);
   }
 }
+
 
 
 
