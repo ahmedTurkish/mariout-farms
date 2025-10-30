@@ -17,8 +17,7 @@ body {
 /* ================================
    الشريط العلوي (Navbar)
 ================================ */
-/* شريط التنقل */
-/* شريط التنقل */
+/* الشريط الرئيسي */
 .navbar {
   display: flex;
   align-items: center;
@@ -29,7 +28,7 @@ body {
   position: sticky;
   top: 0;
   z-index: 1000;
-  direction: rtl; /* لضبط الترتيب العربي */
+  direction: rtl;
 }
 
 /* اللوجو */
@@ -66,18 +65,18 @@ body {
   cursor: pointer;
   display: none;
   position: absolute;
-  left: 15px; /* ← يثبت الزر في أقصى اليسار */
+  left: 15px; /* ← يجعل الزر في أقصى اليسار */
   top: 15px;
   z-index: 1001;
 }
 
-/* الوقت والتاريخ */
+/* الوقت */
 .datetime-container {
   font-size: 14px;
   text-align: left;
 }
 
-/* تصميم الموبايل */
+/* مظهر الموبايل */
 @media (max-width: 768px) {
   .menu-toggle {
     display: block;
@@ -90,12 +89,12 @@ body {
   .nav-links {
     display: none;
     flex-direction: column;
-    align-items: flex-end; /* ← المحاذاة إلى اليمين */
+    align-items: flex-end; /* ← محاذاة العناصر لليمين */
     background-color: #2f8f4a;
     width: 100%;
     position: absolute;
     top: 60px;
-    right: 0; /* ← يجعلها تظهر من جهة اليمين */
+    right: 0;
     padding: 15px 20px;
     z-index: 9999;
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
@@ -116,7 +115,6 @@ body {
     to { opacity: 1; transform: translateY(0); }
   }
 }
-
 
 /* ================================
    قسم البطل (Hero Slider)
@@ -373,6 +371,7 @@ footer {
     transform: translateY(0);
   }
 }
+
 
 
 
