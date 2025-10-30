@@ -76,8 +76,8 @@ body {
   /* إظهار الزر */
   .menu-toggle {
     display: block;
-    order: 3;
-    margin-left: auto;
+    order: -1;
+    margin-right: auto;
   }
 
   /* إخفاء الوقت */
@@ -365,6 +365,7 @@ footer {
     transform: translateY(0);
   }
 }
+
 
 
 
