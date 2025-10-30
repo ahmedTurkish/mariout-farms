@@ -251,8 +251,34 @@
     navLinks.classList.toggle('active');
   });
 </script>
+  <script>
+  const menuToggle = document.querySelector('.menu-toggle');
+  const navLinks = document.querySelector('.nav-links');
+
+  // فتح/إغلاق القائمة
+  menuToggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    navLinks.classList.toggle('active');
+  });
+
+  // إغلاق القائمة عند الضغط خارجها
+  document.addEventListener('click', (e) => {
+    if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
+      navLinks.classList.remove('active');
+    }
+  });
+
+  // إغلاق القائمة عند الضغط على أحد الروابط
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('active');
+    });
+  });
+</script>
+
 </body>
 </html>
+
 
 
 
