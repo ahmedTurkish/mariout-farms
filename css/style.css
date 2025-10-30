@@ -105,7 +105,7 @@ body {
   position: absolute;
   bottom: 20%;
   right: 5%;
-  color: black;
+  color: white;
   max-width: 600px;
   animation: fadeUp 1s ease;
 }
@@ -326,5 +326,6 @@ footer {
     transform: translateY(0);
   }
 }
+
 
 
