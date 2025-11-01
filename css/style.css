@@ -33,7 +33,11 @@ body {
 
 /* اللوجو */
 .logo img {
-  height: 50px;
+  height: 55px;
+  width: auto;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+  border-radius: 8px;
 }
 
 /* الروابط */
@@ -382,6 +386,7 @@ footer {
     transform: translateY(0);
   }
 }
+
 
 
 
