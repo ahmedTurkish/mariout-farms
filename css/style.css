@@ -33,11 +33,29 @@ body {
 
 /* اللوجو */
 
+/* اللوجو */
 .logo {
-  width: 60px;
-  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  text-decoration: none;
+  position: relative;
+  z-index: 10;
+}
+
+.logo img {
+  height: 65px; /* يمكنك التعديل هنا إذا أردت */
+  width: auto;
+  border-radius: 10px; /* يعطي حواف خفيفة مثل المتجر */
   object-fit: contain;
-  border-radius: var(--radius);
+  pointer-events: none; /* يجعل الضغط يتم على الرابط وليس الصورة */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.logo img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 /* الروابط */
@@ -386,6 +404,7 @@ footer {
     transform: translateY(0);
   }
 }
+
 
 
 
