@@ -47,17 +47,23 @@ body {
 }
 
 /* ====== Header ====== */
+/* ====== Header ثابت على نفس الخط ====== */
 .site-header {
   background: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(6px);
-  padding: 25px 0 15px;
+  padding: 15px 20px;
+  border-bottom: 1px solid #2f4f2f;
   position: sticky;
   top: 0;
   z-index: 100;
-  border-bottom: 1px solid #2f4f2f;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.site-header .container {
   display: flex;
-  justify-content: center;
+  align-items: center; /* يبقي الشعار والروابط على نفس الخط */
+  justify-content: space-between; /* الشعار على اليمين، الروابط على اليسار في RTL */
+  gap: 20px;
 }
 
 .brand {
@@ -66,16 +72,11 @@ body {
   gap: 12px;
 }
 
-.brand .logo {
+.logo {
   width: 60px;
   height: 60px;
   object-fit: contain;
   border-radius: var(--radius);
-  transition: transform 0.3s ease;
-}
-
-.brand .logo:hover {
-  transform: scale(1.05);
 }
 
 .brand h1 {
@@ -84,34 +85,21 @@ body {
   margin: 0;
 }
 
-/* ====== Navigation ====== */
+/* Navigation */
 .nav {
-  text-align: center;
-  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  gap: 12px; /* فراغ بين الروابط */
 }
 
 .nav a {
-  display: inline-block;
-  margin-left: 16px;
-  background: #2d6a4f;
-  color: #fff;
-  padding: 8px 16px;
-  border-radius: 30px;
+  color: #eafaea;
   text-decoration: none;
   font-weight: 600;
-  position: relative;
-  transition: 0.3s;
-}
-
-.nav a::after {
-  content: "";
-  position: absolute;
-  width: 0%;
-  height: 2px;
-  background: var(--accent-light);
-  bottom: -4px;
-  left: 0;
-  transition: width 0.3s ease;
+  padding: 6px 12px;
+  border-radius: 25px;
+  background: #2d6a4f;
+  transition: all 0.3s ease;
 }
 
 .nav a:hover {
@@ -119,8 +107,20 @@ body {
   transform: scale(1.05);
 }
 
-.nav a:hover::after {
-  width: 100%;
+/* ====== Responsive للموبايل ====== */
+@media (max-width: 768px) {
+  .site-header .container {
+    justify-content: space-between; /* يبقى على نفس الخط */
+  }
+
+  .nav a {
+    padding: 5px 10px;
+    font-size: 0.9rem;
+  }
+
+  .brand h1 {
+    font-size: 1.4rem;
+  }
 }
 
 /* ====== Main Content ====== */
