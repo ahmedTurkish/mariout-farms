@@ -231,6 +231,7 @@ body {
 }
 
 /* ====== Offers Bar ====== */
+/* ====== Offers Bar متوافق مع كل الأجهزة ====== */
 .offers-sidebar {
   position: fixed;
   top: 0;
@@ -257,6 +258,7 @@ body {
 .offers-track span {
   display: inline-block;
   margin: 0 40px;
+  font-size: 1rem;
 }
 
 /* توقف عند المرور */
@@ -264,14 +266,32 @@ body {
   animation-play-state: paused;
 }
 
-/* ====== Responsive ====== */
+/* ====== Responsive للموبايل ====== */
 @media (max-width: 800px) {
-  .offers-sidebar { display: none; }
-  .brand h1 { font-size: 1.2rem; }
+  .offers-sidebar {
+    height: 40px; /* تقليل الارتفاع لتناسب الموبايل */
+    font-size: 0.85rem; /* حجم الخط أصغر */
+    padding: 5px 0;
+  }
+
+  .offers-track span {
+    margin: 0 15px; /* تقليل المسافة بين العروض */
+  }
 }
 
-@media (max-width: 768px) {
-  .offers-track span {
-    margin: 0 25px;
+@media (max-width: 480px) {
+  .offers-sidebar {
+    height: 35px;
+    font-size: 0.8rem;
   }
+
+  .offers-track span {
+    margin: 0 10px;
+  }
+}
+
+/* ====== الأنيميشن ====== */
+@keyframes scrollOffers {
+  from { transform: translateX(100%); }
+  to { transform: translateX(-100%); }
 }
