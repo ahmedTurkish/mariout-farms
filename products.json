@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "زيت زيتون",
+    "description": "زيت زيتون بكر",
+    "price": 25,
+    "unit": "لكل كيلو",
+    "image": "/assets/products/tomato.jpg"
+  },
+  {
+    "id": 2,
+    "name": "خيار بلدي",
+    "description": "خيار طبيعي بدون مبيدات",
+    "price": 20,
+    "unit": "لكل كيلو",
+    "image": "/assets/products/cucumber.jpg"
+  },
+  {
+    "id": 3,
+    "name": "خس طازج",
+    "description": "خس مقطوف صباح اليوم",
+    "price": 15,
+    "unit": "لكل حزمة",
+    "image": "/assets/products/lettuce.jpg"
+  }
+]
