@@ -1,6 +1,6 @@
 async function fetchProducts(){
   try{
-    const res = await fetch('/api/products');
+    const res = await fetch('products');
     if(!res.ok) throw new Error('Fail to fetch');
     const products = await res.json();
     renderProducts(products);
