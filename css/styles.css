@@ -23,7 +23,7 @@ body {
   line-height: 1.6;
   color: #f5f5f5;
   background: linear-gradient(135deg, #0a1a0a, #1b3a1b);
-  padding-top: 10px; /* مساحة لشريط العروض أو الهيدر */
+  padding-top: 15px; /* مساحة لشريط العروض أو الهيدر */
   opacity: 0;
   animation: fadeIn 1.5s ease forwards;
 }
