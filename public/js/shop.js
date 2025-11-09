@@ -1,17 +1,17 @@
 async function fetchProducts(){
   try{
-    const res = await fetch('products');
+    const res = await fetch('products.json');
     if(!res.ok) throw new Error('Fail to fetch');
     const products = await res.json();
     renderProducts(products);
   }catch(e){
-    document.getElementById('products').innerText = 'حدث خطأ أثناء جلب المنتجات.';
+    document.getElementById('products.json').innerText = 'حدث خطأ أثناء جلب المنتجات.';
     console.error(e);
   }
 }
 
 function renderProducts(products){
-  const container = document.getElementById('products');
+  const container = document.getElementById('products.json');
   container.innerHTML = '';
   products.forEach(p =>{
     const card = document.createElement('div');
