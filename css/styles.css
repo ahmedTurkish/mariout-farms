@@ -1,9 +1,17 @@
-/* ===== تنسيقات عامة ===== */
-body {
-  font-family: "Cairo", sans-serif;
+/* ============================
+   إعدادات عامة
+============================ */
+* {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Cairo', sans-serif;
+}
+
+body {
   background-color: #f9f9f9;
   color: #222;
+  line-height: 1.6;
 }
 
 .container {
@@ -12,9 +20,11 @@ body {
   padding: 1rem;
 }
 
-/* ===== الهيدر ===== */
+/* ============================
+   الهيدر
+============================ */
 .site-header {
-  background: linear-gradient(135deg, #3a9d23, #74c947);
+  background: #1f5f1f; /* أخضر أغمق */
   color: white;
   padding: 0.7rem 1rem;
   display: flex;
@@ -26,12 +36,11 @@ body {
   height: 60px;
   width: auto;
   border-radius: 10px;
-  object-fit: contain;
 }
 
 .btn-ghost {
   background: white;
-  color: #3a9d23;
+  color: #1f5f1f;
   padding: 8px 16px;
   border-radius: 8px;
   text-decoration: none;
@@ -40,25 +49,59 @@ body {
 }
 
 .btn-ghost:hover {
-  background: #3a9d23;
+  background: #1f5f1f;
   color: white;
 }
 
-/* ===== المنتجات ===== */
-.main-content h2 {
-  text-align: center;
-  margin-bottom: 20px;
-  color: #2d6925;
-  font-size: 1.8rem;
+/* ============================
+   شريط الفلترة
+============================ */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin: 20px 0;
+  background: #e6f0e6; /* خلفية فاتحة أخضر */
+  padding: 10px 15px;
+  border-radius: 8px;
 }
 
+.filter-bar label {
+  font-weight: bold;
+}
+
+.filter-bar select,
+.filter-bar input {
+  padding: 5px 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.filter-bar button {
+  background: #1f5f1f;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.filter-bar button:hover {
+  background: #164116;
+}
+
+/* ============================
+   شبكة المنتجات
+============================ */
 .products-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 20px;
 }
 
-/* ===== بطاقة المنتج ===== */
+/* بطاقة المنتج */
 .product-card {
   background: white;
   border-radius: 15px;
@@ -79,7 +122,7 @@ body {
   border-bottom: 1px solid #ddd;
 }
 
-/* ===== معلومات المنتج ===== */
+/* معلومات المنتج */
 .product-info {
   padding: 12px 15px;
 }
@@ -87,7 +130,7 @@ body {
 .product-title {
   font-weight: bold;
   font-size: 1.1rem;
-  color: #2d6925;
+  color: #164116;
   margin-bottom: 8px;
 }
 
@@ -100,15 +143,14 @@ body {
 
 .product-price {
   font-size: 1rem;
-  color: #007f00;
+  color: #0b3a0b;
   font-weight: bold;
   margin-bottom: 12px;
 }
 
-/* ===== زر الإضافة إلى السلة ===== */
 .btn {
   display: inline-block;
-  background: #3a9d23;
+  background: #1f5f1f;
   color: white;
   border: none;
   padding: 10px 14px;
@@ -116,32 +158,71 @@ body {
   cursor: pointer;
   transition: 0.3s;
   width: 100%;
-  font-size: 0.95rem;
 }
 
 .btn:hover {
-  background: #2d6925;
+  background: #164116;
 }
 
-/* ===== الفوتر ===== */
+/* ============================
+   الفوتر
+============================ */
 .site-footer {
   text-align: center;
   padding: 10px;
-  background: #3a9d23;
+  background: #1f5f1f;
   color: white;
   font-size: 0.9rem;
   margin-top: 30px;
 }
 
-/* ===== الموبايل ===== */
-@media (max-width: 600px) {
+/* ============================
+   شريط العروض المتحرك (Sidebar)
+============================ */
+.offers-sidebar {
+  position: fixed;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  background: #1f5f1f;
+  padding: 10px;
+  border-radius: 10px 0 0 10px;
+  overflow: hidden;
+  width: 180px;
+  z-index: 1000;
+}
+
+.offers-sidebar .offers-track {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  animation: scrollOffers 12s linear infinite;
+  color: #fff;
+  font-weight: bold;
+  text-align: center;
+}
+
+@keyframes scrollOffers {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-50%); }
+}
+
+/* ============================
+   الموبايل
+============================ */
+@media (max-width: 768px) {
   .site-header {
     flex-direction: column;
     text-align: center;
   }
 
-  .site-header .btn-ghost {
-    margin-top: 8px;
+  .filter-bar {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .offers-sidebar {
+    display: none; /* اختفاء الشريط على الموبايل */
   }
 
   .product-card img {
