@@ -1,6 +1,6 @@
 async function fetchProducts() {
   try { 
-    (products.json or /products.json)
+    (products.json)
     const res = await fetch('products.json');
     if (!res.ok) throw new Error('Failed to fetch products.json: ' + res.status);
     const products = await res.json();
