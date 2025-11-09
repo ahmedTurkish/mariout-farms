@@ -4,6 +4,7 @@ async function fetchProducts() {
     if (!res.ok) throw new Error('Failed to fetch products.json: ' + res.status);
     const products = await res.json();
     renderProducts(products);
+    setupFilter(products); // ربط الفلترة بالمنتجات
   } catch (e) {
     const container = document.getElementById('products');
     if (container) {
@@ -21,6 +22,24 @@ function renderProducts(products) {
     console.error('No container element with id "products" was found in the DOM.');
     return;
   }
+function setupFilter(products) {
+  const categorySelect = document.getElementById('category');
+  const priceInput = document.getElementById('price');
+  const filterBtn = document.getElementById('filter-btn');
+
+  filterBtn.addEventListener('click', () => {
+    const selectedCategory = categorySelect.value;
+    const maxPrice = parseFloat(priceInput.value) || Infinity;
+
+    const filtered = products.filter(p => {
+      const matchesCategory = selectedCategory === 'all' || p.category === selectedCategory;
+      const matchesPrice = parseFloat(p.price) <= maxPrice;
+      return matchesCategory && matchesPrice;
+    });
+
+    renderProducts(filtered);
+  });
+}
 
   container.innerHTML = '';
 
