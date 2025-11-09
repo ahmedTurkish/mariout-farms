@@ -1,12 +1,11 @@
 async function fetchProducts() {
   try { 
-    (products.json)
     const res = await fetch('products.json');
     if (!res.ok) throw new Error('Failed to fetch products.json: ' + res.status);
     const products = await res.json();
     renderProducts(products);
   } catch (e) {
-    const container = document.getElementById('products') || document.getElementById('products.json');
+    const container = document.getElementById('products');
     if (container) {
       container.innerText = 'حدث خطأ أثناء جلب المنتجات.';
     } else {
@@ -17,9 +16,9 @@ async function fetchProducts() {
 }
 
 function renderProducts(products) {
-  const container = document.getElementById('products') || document.getElementById('products.json');
+  const container = document.getElementById('products');
   if (!container) {
-    console.error('No container element with id "products" or "products.json" was found in the DOM.');
+    console.error('No container element with id "products" was found in the DOM.');
     return;
   }
 
@@ -32,13 +31,12 @@ function renderProducts(products) {
   }
 
   products.forEach(p => {
-    // Basic normalization and safety
-    const id = p && p.id != null ? String(p.id) : '';
-    const name = p && p.name != null ? String(p.name) : 'بدون اسم';
-    const description = p && p.description != null ? String(p.description) : '';
-    const price = p && p.price != null ? String(p.price) : '-';
-    const unit = p && p.unit != null ? String(p.unit) : '';
-    const imageSrc = p && p.image ? String(p.image) : '/assets/placeholder.jpg';
+    const id = p?.id ?? '';
+    const name = p?.name ?? 'بدون اسم';
+    const description = p?.description ?? '';
+    const price = p?.price ?? '-';
+    const unit = p?.unit ?? '';
+    const imageSrc = p?.image ?? '/assets/placeholder.jpg';
 
     const card = document.createElement('div');
     card.className = 'product-card';
@@ -56,7 +54,7 @@ function renderProducts(products) {
 
     const descEl = document.createElement('div');
     descEl.className = 'product-desc';
-    descEl.textContent = description; // textContent => no HTML injection
+    descEl.textContent = description;
 
     const priceEl = document.createElement('div');
     priceEl.className = 'product-price';
@@ -66,22 +64,15 @@ function renderProducts(products) {
     btn.className = 'btn';
     btn.type = 'button';
     btn.textContent = 'أضف إلى السلة';
-    // attach event listener; convert id to string to avoid breaking if it's non-numeric
     btn.addEventListener('click', () => addToCart(id));
 
-    info.appendChild(titleEl);
-    info.appendChild(descEl);
-    info.appendChild(priceEl);
-    info.appendChild(btn);
-
-    card.appendChild(img);
-    card.appendChild(info);
+    info.append(titleEl, descEl, priceEl, btn);
+    card.append(img, info);
     container.appendChild(card);
   });
 }
 
 function addToCart(id) {
-  // Replace with real cart logic
   alert('تم إضافة المنتج (تجريبياً): ' + id);
 }
 
