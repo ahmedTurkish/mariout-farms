@@ -54,6 +54,39 @@ body {
 }
 
 /* ============================
+   شريط العروض المتحرك أسفل الهيدر
+============================ */
+.offers-bar {
+  background: #1f5f1f;
+  color: white;
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 10px 0;
+  position: relative;
+}
+
+.offers-track {
+  display: inline-block;
+  animation: moveOffers 20s linear infinite;
+}
+
+.offers-track span {
+  display: inline-block;
+  margin: 0 40px;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.offers-bar:hover .offers-track {
+  animation-play-state: paused;
+}
+
+@keyframes moveOffers {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
+/* ============================
    شريط الفلترة
 ============================ */
 .filter-bar {
@@ -101,7 +134,6 @@ body {
   gap: 20px;
 }
 
-/* بطاقة المنتج */
 .product-card {
   background: white;
   border-radius: 15px;
@@ -122,7 +154,6 @@ body {
   border-bottom: 1px solid #ddd;
 }
 
-/* معلومات المنتج */
 .product-info {
   padding: 12px 15px;
 }
@@ -177,37 +208,6 @@ body {
 }
 
 /* ============================
-   شريط العروض المتحرك (Sidebar)
-============================ */
-.offers-sidebar {
-  position: fixed;
-  top: 50%;
-  right: 0;
-  transform: translateY(-50%);
-  background: #1f5f1f;
-  padding: 10px;
-  border-radius: 10px 0 0 10px;
-  overflow: hidden;
-  width: 180px;
-  z-index: 1000;
-}
-
-.offers-sidebar .offers-track {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  animation: scrollOffers 12s linear infinite;
-  color: #fff;
-  font-weight: bold;
-  text-align: center;
-}
-
-@keyframes scrollOffers {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(-50%); }
-}
-
-/* ============================
    الموبايل
 ============================ */
 @media (max-width: 768px) {
@@ -221,8 +221,9 @@ body {
     gap: 8px;
   }
 
-  .offers-sidebar {
-    display: none; /* اختفاء الشريط على الموبايل */
+  .offers-track span {
+    margin: 0 20px;
+    font-size: 0.9rem;
   }
 
   .product-card img {
