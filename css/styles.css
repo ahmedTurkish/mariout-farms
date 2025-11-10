@@ -201,7 +201,7 @@
 .cart-icon {
   position: fixed;
   left: 16px; /* dir=rtl => ضعها على اليسار */
-  top: 80px;
+  top: 60px;
   background: #fff;
   padding: 8px;
   border-radius: 32px;
