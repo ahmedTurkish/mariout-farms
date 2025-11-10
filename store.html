@@ -18,22 +18,36 @@
         <img src="assets/logo/MIAD.png" alt="MIAD" class="logo">
       </div>
       <nav class="nav">
-      <a href="/mariout-farms/" class="btn-ghost">العودة للصفحة الرئيسية</a>
+        <a href="/mariout-farms/" class="btn-ghost">العودة للصفحة الرئيسية</a>
       </nav>
     </div>
   </header>
-<div class="filter-bar">
-  <label for="category">التصنيف:</label>
-  <select id="category">
-    <option value="all">الكل</option>
-    <option value="honey">العسل</option>
-    <option value="fertilizer">الأسمدة</option>
-  </select>
 
-  <label for="price">السعر أقل من:</label>
-  <input type="number" id="price" placeholder="ج.م" min="0">
-  <button id="filter-btn">تطبيق الفلتر</button>
-</div>
+  <!-- ✅ الشريط المتحرك أسفل الهيدر مباشرة -->
+  <div class="offers-bar">
+    <div class="offers-track">
+      <span>💥 عروض اليوم 💥</span>
+      <span>خصم 20٪ على منتجات العسل 🍯</span>
+      <span>اشترِ 2 واحصل على الثالث مجانًا 🐝</span>
+      <span>تخفيضات على الأسمدة العضوية 🌿</span>
+      <span>شحن مجاني داخل الإسكندرية 🚚</span>
+      <span>عرض الجمعة فقط: خصم 30٪ 🔥</span>
+      <span>💥 عروض اليوم 💥</span>
+    </div>
+  </div>
+
+  <div class="filter-bar">
+    <label for="category">التصنيف:</label>
+    <select id="category">
+      <option value="all">الكل</option>
+      <option value="honey">العسل</option>
+      <option value="fertilizer">الأسمدة</option>
+    </select>
+
+    <label for="price">السعر أقل من:</label>
+    <input type="number" id="price" placeholder="ج.م" min="0">
+    <button id="filter-btn">تطبيق الفلتر</button>
+  </div>
 
   <div class="cart-icon">
     <a href="store.html">
@@ -50,21 +64,6 @@
   <footer class="site-footer">
     <div class="container">© 2025 Mariout Farms</div>
   </footer>
-
-  <div class="offers-sidebar">
-    <div class="offers-track">
-      <span>💥 عروض اليوم 💥</span>
-      <span>خصم 20٪ على منتجات العسل 🍯</span>
-      <span>اشترِ 2 واحصل على الثالث مجانًا 🐝</span>
-      <span>تخفيضات على الأسمدة العضوية 🌿</span>
-      <span>شحن مجاني داخل الإسكندرية 🚚</span>
-      <span>عرض الجمعة فقط: خصم 30٪ 🔥</span>
-      <span>💥 عروض اليوم 💥</span> <!-- تكرار لضمان الاستمرارية -->
-      <span>خصم 20٪ على منتجات العسل 🍯</span>
-      <span>اشترِ 2 واحصل على الثالث مجانًا 🐝</span>
-      <span>تخفيضات على الأسمدة العضوية 🌿</span>
-    </div>
-  </div>
 
   <script src="public/js/shop.js"></script>
 </body>
