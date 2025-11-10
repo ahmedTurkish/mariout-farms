@@ -16,30 +16,13 @@ async function fetchProducts() {
   }
 }
 
+// ✅ دالة عرض المنتجات
 function renderProducts(products) {
   const container = document.getElementById('products');
   if (!container) {
     console.error('No container element with id "products" was found in the DOM.');
     return;
   }
-function setupFilter(products) {
-  const categorySelect = document.getElementById('category');
-  const priceInput = document.getElementById('price');
-  const filterBtn = document.getElementById('filter-btn');
-
-  filterBtn.addEventListener('click', () => {
-    const selectedCategory = categorySelect.value;
-    const maxPrice = parseFloat(priceInput.value) || Infinity;
-
-    const filtered = products.filter(p => {
-      const matchesCategory = selectedCategory === 'all' || p.category === selectedCategory;
-      const matchesPrice = parseFloat(p.price) <= maxPrice;
-      return matchesCategory && matchesPrice;
-    });
-
-    renderProducts(filtered);
-  });
-}
 
   container.innerHTML = '';
 
@@ -91,8 +74,32 @@ function setupFilter(products) {
   });
 }
 
+// ✅ دالة الفلترة
+function setupFilter(products) {
+  const categorySelect = document.getElementById('category');
+  const priceInput = document.getElementById('price');
+  const filterBtn = document.getElementById('filter-btn');
+
+  if (!categorySelect || !priceInput || !filterBtn) return;
+
+  filterBtn.addEventListener('click', () => {
+    const selectedCategory = categorySelect.value;
+    const maxPrice = parseFloat(priceInput.value) || Infinity;
+
+    const filtered = products.filter(p => {
+      const matchesCategory = selectedCategory === 'all' || p.category === selectedCategory;
+      const matchesPrice = parseFloat(p.price) <= maxPrice;
+      return matchesCategory && matchesPrice;
+    });
+
+    renderProducts(filtered);
+  });
+}
+
+// ✅ دالة السلة
 function addToCart(id) {
   alert('تم إضافة المنتج (تجريبياً): ' + id);
 }
 
+// ✅ بدء التنفيذ
 fetchProducts();
