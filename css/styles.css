@@ -10,21 +10,21 @@
 /* محتوى الهيدر */
 .header-content {
   display: flex;
-  justify-content: space-between; /* يجعل الزر واللوجو على نفس السطر */
-  align-items: center; /* يوسّط العناصر عموديًا */
-  padding: 6px 16px; /* قلل الارتفاع هنا */
-  height: 60px; /* ارتفاع أقل */
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 16px;
+  height: 60px;
 }
 
 /* اللوجو */
 .logo {
-  height: 40px; /* يمكنك تعديل الارتفاع حسب حجم الشعار */
+  height: 40px;
   object-fit: contain;
 }
 
 /* زر الرجوع */
-.back-btn, .nav a.btn-ghost {
-  background-color: #007c3c; /* لون أخضر غامق */
+.back-btn {
+  background-color: #007c3c;
   color: #fff;
   border: none;
   border-radius: 6px;
@@ -32,35 +32,18 @@
   font-size: 14px;
   cursor: pointer;
   transition: background-color 0.3s;
-  text-decoration: none;
 }
 
-.back-btn:hover, .nav a.btn-ghost:hover {
-  background-color: #005f2d; /* أغمق عند التمرير */
+.back-btn:hover {
+  background-color: #005f2d;
 }
 
-/* الشريط المتحرك أسفل الهيدر */
-.moving-bar, .offers-bar {
+/* ===== الشريط المتحرك أسفل الهيدر ===== */
+.moving-bar {
   height: 4px;
   background: linear-gradient(90deg, #007c3c, #00a64f, #007c3c);
   background-size: 200% 100%;
   animation: moveBar 3s linear infinite;
-}
-
-.offers-track {
-  display: inline-block;
-  animation: moveOffers 20s linear infinite;
-}
-
-.offers-track span {
-  display: inline-block;
-  margin: 0 40px;
-  font-weight: bold;
-  font-size: 1rem;
-}
-
-.offers-bar:hover .offers-track {
-  animation-play-state: paused;
 }
 
 @keyframes moveBar {
@@ -68,31 +51,140 @@
   100% { background-position: -200% 0; }
 }
 
-@keyframes moveOffers {
-  0% { transform: translateX(100%); }
-  100% { transform: translateX(-100%); }
+/* ===== شريط الفلترة ===== */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin: 20px 0;
+  background: #e6f0e6;
+  padding: 10px 15px;
+  border-radius: 8px;
+}
+
+.filter-bar label {
+  font-weight: bold;
+}
+
+.filter-bar select,
+.filter-bar input {
+  padding: 5px 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.filter-bar button {
+  background: #007c3c;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.filter-bar button:hover {
+  background: #005f2d;
+}
+
+/* ===== شبكة المنتجات ===== */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.product-card {
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.product-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-bottom: 1px solid #ddd;
+}
+
+.product-info {
+  padding: 12px 15px;
+}
+
+.product-title {
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: #164116;
+  margin-bottom: 8px;
+}
+
+.product-desc {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 10px;
+  min-height: 40px;
+}
+
+.product-price {
+  font-size: 1rem;
+  color: #0b3a0b;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+.btn {
+  display: inline-block;
+  background: #007c3c;
+  color: white;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+  width: 100%;
+}
+
+.btn:hover {
+  background: #005f2d;
+}
+
+/* ===== الفوتر ===== */
+.site-footer {
+  text-align: center;
+  padding: 10px;
+  background: #007c3c;
+  color: white;
+  font-size: 0.9rem;
+  margin-top: 30px;
 }
 
 /* ===== الموبايل ===== */
 @media (max-width: 768px) {
   .header-content {
     flex-direction: column;
+    text-align: center;
     height: auto;
     gap: 8px;
-    padding: 10px;
   }
 
-  .logo {
-    height: 38px;
+  .filter-bar {
+    flex-direction: column;
+    gap: 8px;
   }
 
-  .back-btn, .nav a.btn-ghost {
-    width: 100%;
-    text-align: center;
+  .product-card img {
+    height: 150px;
   }
 
-  .offers-track span {
-    margin: 0 20px;
-    font-size: 0.9rem;
+  .moving-bar {
+    height: 3px;
   }
 }
