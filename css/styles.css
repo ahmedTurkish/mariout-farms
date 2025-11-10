@@ -7,6 +7,24 @@
   z-index: 1000;
 }
 
+/* Support for HTML that uses .site-header */
+.site-header {
+  /* mirror main-header styles so both أسماء تعمل */
+  background-color: #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: 8px 0;
+}
+
+/* حاوية عامة */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
 /* محتوى الهيدر */
 .header-content {
   display: flex;
@@ -38,17 +56,59 @@
   background-color: #005f2d;
 }
 
+/* زر/رابط شبيه - يستخدم في الهيدر (btn-ghost في HTML) */
+.btn-ghost {
+  display: inline-block;
+  background: transparent;
+  color: #007c3c;
+  border: 1px solid #007c3c;
+  padding: 8px 12px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background-color 0.2s, color 0.2s;
+}
+.btn-ghost:hover {
+  background: #007c3c;
+  color: #fff;
+}
+
 /* ===== الشريط المتحرك أسفل الهيدر ===== */
+/* ملاحظة: HTML يستخدم .offers-bar و .offers-track، لذا أضيفت قواعد لهما */
+.offers-bar {
+  overflow: hidden;
+  background: #e9f7ea;
+  border-top: 1px solid rgba(0,0,0,0.03);
+  border-bottom: 1px solid rgba(0,0,0,0.03);
+}
+.offers-track {
+  display: inline-flex;
+  gap: 40px;
+  padding: 8px 16px;
+  align-items: center;
+  white-space: nowrap;
+  animation: scrollOffers 18s linear infinite;
+  /* duplicate content in HTML helps smooth loop */
+}
+.offers-track span {
+  font-weight: 600;
+  color: #05521b;
+}
+
+/* fallback/legacy name (original CSS had .moving-bar) */
 .moving-bar {
   height: 4px;
   background: linear-gradient(90deg, #007c3c, #00a64f, #007c3c);
   background-size: 200% 100%;
   animation: moveBar 3s linear infinite;
 }
-
 @keyframes moveBar {
   0% { background-position: 0 0; }
   100% { background-position: -200% 0; }
+}
+
+@keyframes scrollOffers {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
 /* ===== شريط الفلترة ===== */
@@ -156,6 +216,34 @@
   background: #005f2d;
 }
 
+/* ===== أيقونة السلة (ثابتة على الشاشة) ===== */
+.cart-icon {
+  position: fixed;
+  left: 16px; /* dir=rtl => ضعها على اليسار */
+  top: 80px;
+  background: #fff;
+  padding: 8px;
+  border-radius: 32px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  z-index: 1200;
+}
+.cart-icon a {
+  color: #07360f;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+}
+.cart-counter {
+  background: #e53935;
+  color: #fff;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  display: inline-block;
+}
+
 /* ===== الفوتر ===== */
 .site-footer {
   text-align: center;
@@ -186,5 +274,11 @@
 
   .moving-bar {
     height: 3px;
+  }
+
+  /* position the floating cart for small screens */
+  .cart-icon {
+    left: 12px;
+    top: 72px;
   }
 }
