@@ -1,48 +1,38 @@
-/* ============================
-   إعدادات عامة
-============================ */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Cairo', sans-serif;
-}
-
-body {
-  background-color: #f9f9f9;
-  color: #222;
-  line-height: 1.6;
-}
-
-.container {
-  max-width: 1200px;
-  margin: auto;
-  padding: 1rem;
-}
-
-/* ============================
-   الهيدر
-============================ */
 .site-header {
   background: #1f5f1f; /* أخضر أغمق */
   color: white;
   padding: 0.4rem 1rem; /* تقليل الارتفاع */
   display: flex;
-  justify-content: space-between; /* يجعل اللوجو والزر على نفس السطر */
-  align-items: center; /* توسيط عمودي */
-  height: 65px; /* ارتفاع ثابت متناسق */
+  justify-content: space-between; /* توزيع اللوجو والزر */
+  align-items: center;
+  height: 65px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  position: relative;
+  z-index: 10;
+}
+
+/* الحاوية الداخلية */
+.site-header .container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 /* اللوجو */
 .site-header .logo {
-  height: 48px; /* تقليل حجم اللوجو قليلاً */
+  height: 48px;
   width: auto;
   border-radius: 8px;
   display: block;
 }
 
-/* زر الرجوع */
+/* الزر */
+.nav {
+  display: flex;
+  align-items: center;
+}
+
 .btn-ghost {
   background: white;
   color: #1f5f1f;
@@ -52,6 +42,7 @@ body {
   font-weight: bold;
   transition: 0.3s;
   border: 2px solid transparent;
+  white-space: nowrap; /* يمنع كسر النص */
 }
 
 .btn-ghost:hover {
@@ -59,183 +50,4 @@ body {
   color: white;
   border-color: white;
   transform: scale(1.05);
-}
-
-
-/* ============================
-   شريط العروض المتحرك أسفل الهيدر
-============================ */
-.offers-bar {
-  background: #1f5f1f;
-  color: white;
-  overflow: hidden;
-  white-space: nowrap;
-  padding: 10px 0;
-  position: relative;
-}
-
-.offers-track {
-  display: inline-block;
-  animation: moveOffers 20s linear infinite;
-}
-
-.offers-track span {
-  display: inline-block;
-  margin: 0 40px;
-  font-weight: bold;
-  font-size: 1rem;
-}
-
-.offers-bar:hover .offers-track {
-  animation-play-state: paused;
-}
-
-@keyframes moveOffers {
-  0% { transform: translateX(100%); }
-  100% { transform: translateX(-100%); }
-}
-
-/* ============================
-   شريط الفلترة
-============================ */
-.filter-bar {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 10px;
-  margin: 20px 0;
-  background: #e6f0e6; /* خلفية فاتحة أخضر */
-  padding: 10px 15px;
-  border-radius: 8px;
-}
-
-.filter-bar label {
-  font-weight: bold;
-}
-
-.filter-bar select,
-.filter-bar input {
-  padding: 5px 8px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-}
-
-.filter-bar button {
-  background: #1f5f1f;
-  color: white;
-  border: none;
-  padding: 6px 12px;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.filter-bar button:hover {
-  background: #164116;
-}
-
-/* ============================
-   شبكة المنتجات
-============================ */
-.products-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
-}
-
-.product-card {
-  background: white;
-  border-radius: 15px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  overflow: hidden;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.product-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
-}
-
-.product-card img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-  border-bottom: 1px solid #ddd;
-}
-
-.product-info {
-  padding: 12px 15px;
-}
-
-.product-title {
-  font-weight: bold;
-  font-size: 1.1rem;
-  color: #164116;
-  margin-bottom: 8px;
-}
-
-.product-desc {
-  font-size: 0.9rem;
-  color: #555;
-  margin-bottom: 10px;
-  min-height: 40px;
-}
-
-.product-price {
-  font-size: 1rem;
-  color: #0b3a0b;
-  font-weight: bold;
-  margin-bottom: 12px;
-}
-
-.btn {
-  display: inline-block;
-  background: #1f5f1f;
-  color: white;
-  border: none;
-  padding: 10px 14px;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: 0.3s;
-  width: 100%;
-}
-
-.btn:hover {
-  background: #164116;
-}
-
-/* ============================
-   الفوتر
-============================ */
-.site-footer {
-  text-align: center;
-  padding: 10px;
-  background: #1f5f1f;
-  color: white;
-  font-size: 0.9rem;
-  margin-top: 30px;
-}
-
-/* ============================
-   الموبايل
-============================ */
-@media (max-width: 768px) {
-  .site-header {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .filter-bar {
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  .offers-track span {
-    margin: 0 20px;
-    font-size: 0.9rem;
-  }
-
-  .product-card img {
-    height: 150px;
-  }
 }
