@@ -66,7 +66,7 @@
   padding: 8px 16px;
   align-items: center;
   white-space: nowrap;
-  animation: scrollOffers 18s linear infinite;
+  animation: scrollOffers 18s linear infinite reverse;
 }
 .offers-track span {
   font-weight: 600;
