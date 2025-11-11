@@ -54,7 +54,6 @@
 }
 
 /* ===== الشريط المتحرك أسفل الهيدر ===== */
-/* ملاحظة: HTML يستخدم .offers-bar و .offers-track، لذا أضيفت قواعد لهما */
 .offers-bar {
   overflow: hidden;
   background: #e9f7ea;
@@ -68,14 +67,12 @@
   align-items: center;
   white-space: nowrap;
   animation: scrollOffers 18s linear infinite;
-  /* duplicate content in HTML helps smooth loop */
 }
 .offers-track span {
   font-weight: 600;
   color: #05521b;
 }
 
-/* fallback/legacy name (original CSS had .moving-bar) */
 .moving-bar {
   height: 4px;
   background: linear-gradient(90deg, #007c3c, #00a64f, #007c3c);
@@ -86,7 +83,6 @@
   0% { background-position: 0 0; }
   100% { background-position: -200% 0; }
 }
-
 @keyframes scrollOffers {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
@@ -95,17 +91,19 @@
 /* ===== شريط الفلترة ===== */
 .filter-bar {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap; /* نبقي العناصر على سطر واحد داخل الشريط */
   align-items: center;
   gap: 10px;
   margin: 20px 0;
   background: #e6f0e6;
   padding: 10px 15px;
   border-radius: 8px;
+  min-width: 0; /* يسمح للأطفال بالتقلص داخل flex parent */
 }
 
 .filter-bar label {
   font-weight: bold;
+  white-space: nowrap;
 }
 
 .filter-bar select,
@@ -127,6 +125,21 @@
 
 .filter-bar button:hover {
   background: #005f2d;
+}
+
+/* ===== ترتيب الشريط والعربة في صف واحد ===== */
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 12px;
+  margin-bottom: 8px;
+}
+
+/* نجعل شريط الفلترة يشغل المساحة المتاحة */
+.controls .filter-bar {
+  flex: 1 1 auto;
+  min-width: 0; /* مهم لتمكين الانكماش داخل flex */
 }
 
 /* ===== شبكة المنتجات ===== */
@@ -197,16 +210,18 @@
   background: #005f2d;
 }
 
-/* ===== أيقونة السلة (ثابتة على الشاشة) ===== */
+/* ===== أيقونة السلة (معدلة لتكون داخل سطر الفلترة) ===== */
 .cart-icon {
-  position: fixed;
-  left: 16px; /* dir=rtl => ضعها على اليسار */
-  top: 60px;
+  position: static; /* ليست ثابتة على الشاشة الآن، بل بجانب شريط الفلترة */
   background: #fff;
   padding: 8px;
   border-radius: 32px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.12);
   z-index: 1200;
+  min-width: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 .cart-icon a {
   color: #07360f;
@@ -244,8 +259,13 @@
     gap: 8px;
   }
 
-  .filter-bar {
+  .controls {
     flex-direction: column;
+    align-items: stretch;
+  }
+
+  .filter-bar {
+    flex-wrap: wrap;
     gap: 8px;
   }
 
@@ -257,7 +277,7 @@
     height: 3px;
   }
 
-  /* position the floating cart for small screens */
+  /* small screens: keep cart inline inside controls (no fixed position) */
   .cart-icon {
     left: 12px;
     top: 72px;
