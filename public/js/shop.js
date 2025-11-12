@@ -1,3 +1,10 @@
+function openForm(type, productName) {
+  alert(`فتح نموذج: ${type} للمنتج ${productName}`);
+}
+
+function closeForm() {
+  alert("تم إغلاق النموذج");
+}
 // التبديل بين المنتجات والخدمات
 document.getElementById("productsTab").addEventListener("click", () => {
   document.getElementById("productsSection").classList.remove("hidden");
