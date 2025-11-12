@@ -59,9 +59,26 @@
     </div>
   </div>
 
-  <main class="container main-content">
-    <h2>منتجاتنا</h2>
-    <div id="products" class="products-grid">جارٍ التحميل...</div>
+   <!-- التبويبات -->
+  <div class="tabs">
+    <button class="tab-btn active" data-target="products">المنتجات</button>
+    <button class="tab-btn" data-target="services">الخدمات</button>
+  </div>
+
+  <!-- قسم المنتجات -->
+  <main id="products" class="tab-content active">
+    <div class="container">
+      <h2>منتجاتنا</h2>
+      <div class="items-grid" id="products-grid">جارٍ التحميل...</div>
+    </div>
+  </main>
+
+  <!-- قسم الخدمات -->
+  <main id="services" class="tab-content">
+    <div class="container">
+      <h2>خدماتنا</h2>
+      <div class="items-grid" id="services-grid">جارٍ التحميل...</div>
+    </div>
   </main>
 
   <footer class="site-footer">
