@@ -1,105 +1,58 @@
-async function fetchProducts() {
-  try { 
-    const res = await fetch('products.json');
-    if (!res.ok) throw new Error('Failed to fetch products.json: ' + res.status);
-    const products = await res.json();
-    renderProducts(products);
-    setupFilter(products); // ربط الفلترة بالمنتجات
-  } catch (e) {
-    const container = document.getElementById('products');
-    if (container) {
-      container.innerText = 'حدث خطأ أثناء جلب المنتجات.';
-    } else {
-      console.error('Products container not found and fetch failed:', e);
-    }
-    console.error(e);
-  }
-}
+document.addEventListener('DOMContentLoaded', () => {
+  // التبويبات
+  const tabs = document.querySelectorAll('.tab-btn');
+  const contents = document.querySelectorAll('.tab-content');
+  tabs.forEach(btn => {
+    btn.addEventListener('click', () => {
+      tabs.forEach(b => b.classList.remove('active'));
+      contents.forEach(c => c.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById(btn.dataset.target).classList.add('active');
+    });
+  });
 
-// ✅ دالة عرض المنتجات
-function renderProducts(products) {
-  const container = document.getElementById('products');
-  if (!container) {
-    console.error('No container element with id "products" was found in the DOM.');
-    return;
-  }
+  // تحميل البيانات
+  fetchData('products-grid', [
+    { id: 1, name: 'بطاطا', price: '12', unit: 'كيلوجرام', image: 'assets/products/potato.jpg' },
+    { id: 2, name: 'بطاطس', price: '10', unit: 'كيلوجرام', image: 'assets/products/sweetpotato.jpg' },
+    { id: 3, name: 'زيت الزيتون', price: '200', unit: 'لتر', image: 'assets/products/oliveoil.jpg' },
+  ]);
 
+  fetchData('services-grid', [
+    { id: 101, name: 'تأجير حفارات آبار المياه', price: 'بالاتفاق', image: 'assets/services/drilling.jpg' },
+    { id: 102, name: 'ماكينات رفع المياه', price: 'بالاتفاق', image: 'assets/services/pump.jpg' },
+  ]);
+});
+
+function fetchData(containerId, data) {
+  const container = document.getElementById(containerId);
   container.innerHTML = '';
-
-  if (!Array.isArray(products)) {
-    container.innerText = 'لا توجد منتجات للعرض.';
-    console.warn('Expected products to be an array but got:', products);
-    return;
-  }
-
-  products.forEach(p => {
-    const id = p?.id ?? '';
-    const name = p?.name ?? 'بدون اسم';
-    const description = p?.description ?? '';
-    const price = p?.price ?? '-';
-    const unit = p?.unit ?? '';
-    const imageSrc = p?.image ?? '/assets/placeholder.jpg';
-
+  data.forEach(item => {
     const card = document.createElement('div');
-    card.className = 'product-card';
-
-    const img = document.createElement('img');
-    img.src = imageSrc;
-    img.alt = name;
-
-    const info = document.createElement('div');
-    info.className = 'product-info';
-
-    const titleEl = document.createElement('div');
-    titleEl.className = 'product-title';
-    titleEl.textContent = name;
-
-    const descEl = document.createElement('div');
-    descEl.className = 'product-desc';
-    descEl.textContent = description;
-
-    const priceEl = document.createElement('div');
-    priceEl.className = 'product-price';
-    priceEl.textContent = `${price} ج.م${unit ? ' - ' + unit : ''}`;
-
-    const btn = document.createElement('button');
-    btn.className = 'btn';
-    btn.type = 'button';
-    btn.textContent = 'أضف إلى السلة';
-    btn.addEventListener('click', () => addToCart(id));
-
-    info.append(titleEl, descEl, priceEl, btn);
-    card.append(img, info);
+    card.className = 'item-card';
+    card.innerHTML = `
+      <img src="${item.image}" alt="${item.name}">
+      <div class="item-info">
+        <div class="item-title">${item.name}</div>
+        <div class="item-price">${item.price} ${item.unit || ''}</div>
+        <div class="btns">
+          <button class="btn" onclick="requestQuote('${item.name}')">طلب عرض سعر</button>
+          <button class="btn" onclick="offerQuote('${item.name}')">تقديم عرض سعر</button>
+        </div>
+      </div>
+    `;
     container.appendChild(card);
   });
 }
 
-// ✅ دالة الفلترة
-function setupFilter(products) {
-  const categorySelect = document.getElementById('category');
-  const priceInput = document.getElementById('price');
-  const filterBtn = document.getElementById('filter-btn');
+// روابط Google Sheets الوهمية
+const REQUEST_URL = "https://docs.google.com/forms/d/e/fakeRequestForm/viewform";
+const OFFER_URL = "https://docs.google.com/forms/d/e/fakeOfferForm/viewform";
 
-  if (!categorySelect || !priceInput || !filterBtn) return;
-
-  filterBtn.addEventListener('click', () => {
-    const selectedCategory = categorySelect.value;
-    const maxPrice = parseFloat(priceInput.value) || Infinity;
-
-    const filtered = products.filter(p => {
-      const matchesCategory = selectedCategory === 'all' || p.category === selectedCategory;
-      const matchesPrice = parseFloat(p.price) <= maxPrice;
-      return matchesCategory && matchesPrice;
-    });
-
-    renderProducts(filtered);
-  });
+function requestQuote(itemName) {
+  window.open(`${REQUEST_URL}?entry.product=${encodeURIComponent(itemName)}`, '_blank');
 }
 
-// ✅ دالة السلة
-function addToCart(id) {
-  alert('تم إضافة المنتج (تجريبياً): ' + id);
+function offerQuote(itemName) {
+  window.open(`${OFFER_URL}?entry.product=${encodeURIComponent(itemName)}`, '_blank');
 }
-
-// ✅ بدء التنفيذ
-fetchProducts();
