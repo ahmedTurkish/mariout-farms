@@ -66,20 +66,64 @@
   </div>
 
   <!-- قسم المنتجات -->
-  <main id="products" class="tab-content active">
-    <div class="container">
-      <h2>منتجاتنا</h2>
-      <div class="items-grid" id="products-grid">جارٍ التحميل...</div>
+  <main class="shop-container">
+    <div class="tabs">
+      <button class="tab active" id="productsTab">المنتجات</button>
+      <button class="tab" id="servicesTab">الخدمات</button>
+    </div>
+
+    <div id="productsSection" class="grid">
+      <!-- أمثلة للمنتجات -->
+      <div class="card">
+        <img src="potatoes.jpg" alt="بطاطس">
+        <h3>بطاطس</h3>
+        <p>بطاطس زراعية طازجة عالية الجودة.</p>
+        <div class="buttons">
+          <button class="btn request" onclick="openForm('بطاطس','طلب')">طلب عرض سعر</button>
+          <button class="btn offer" onclick="openForm('بطاطس','تقديم')">تقديم عرض سعر</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="olive-oil.jpg" alt="زيت الزيتون">
+        <h3>زيت الزيتون</h3>
+        <p>زيت زيتون بكر ممتاز.</p>
+        <div class="buttons">
+          <button class="btn request" onclick="openForm('زيت الزيتون','طلب')">طلب عرض سعر</button>
+          <button class="btn offer" onclick="openForm('زيت الزيتون','تقديم')">تقديم عرض سعر</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="servicesSection" class="grid hidden">
+      <div class="card">
+        <img src="drilling.jpg" alt="حفارات الآبار">
+        <h3>تأجير حفارات الآبار</h3>
+        <p>خدمة تأجير حفارات الآبار للمياه الجوفية.</p>
+        <div class="buttons">
+          <button class="btn request" onclick="openForm('تأجير حفارات','طلب')">طلب عرض سعر</button>
+          <button class="btn offer" onclick="openForm('تأجير حفارات','تقديم')">تقديم عرض سعر</button>
+        </div>
+      </div>
     </div>
   </main>
 
-  <!-- قسم الخدمات -->
-  <main id="services" class="tab-content">
-    <div class="container">
-      <h2>خدماتنا</h2>
-      <div class="items-grid" id="services-grid">جارٍ التحميل...</div>
+  <!-- نموذج إرسال العرض -->
+  <div class="modal hidden" id="quoteModal">
+    <div class="modal-content">
+      <h3 id="modalTitle">عرض السعر</h3>
+      <input type="text" id="name" placeholder="الاسم">
+      <input type="text" id="phone" placeholder="رقم الهاتف">
+      <input type="text" id="product" readonly>
+      <select id="unit">
+        <option value="كيلوجرام">كيلوجرام</option>
+        <option value="طن">طن</option>
+        <option value="وحدة">وحدة</option>
+      </select>
+      <input type="number" id="price" placeholder="السعر المقترح (اختياري)">
+      <button class="btn send" onclick="submitQuote()">إرسال</button>
+      <button class="btn close" onclick="closeForm()">إغلاق</button>
     </div>
-  </main>
 
   <footer class="site-footer">
     <div class="container">© 2025 Mariout Farms</div>
