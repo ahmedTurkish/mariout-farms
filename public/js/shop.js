@@ -1,58 +1,50 @@
-document.addEventListener('DOMContentLoaded', () => {
-  // التبويبات
-  const tabs = document.querySelectorAll('.tab-btn');
-  const contents = document.querySelectorAll('.tab-content');
-  tabs.forEach(btn => {
-    btn.addEventListener('click', () => {
-      tabs.forEach(b => b.classList.remove('active'));
-      contents.forEach(c => c.classList.remove('active'));
-      btn.classList.add('active');
-      document.getElementById(btn.dataset.target).classList.add('active');
-    });
-  });
-
-  // تحميل البيانات
-  fetchData('products-grid', [
-    { id: 1, name: 'بطاطا', price: '12', unit: 'كيلوجرام', image: 'assets/products/potato.jpg' },
-    { id: 2, name: 'بطاطس', price: '10', unit: 'كيلوجرام', image: 'assets/products/sweetpotato.jpg' },
-    { id: 3, name: 'زيت الزيتون', price: '200', unit: 'لتر', image: 'assets/products/oliveoil.jpg' },
-  ]);
-
-  fetchData('services-grid', [
-    { id: 101, name: 'تأجير حفارات آبار المياه', price: 'بالاتفاق', image: 'assets/services/drilling.jpg' },
-    { id: 102, name: 'ماكينات رفع المياه', price: 'بالاتفاق', image: 'assets/services/pump.jpg' },
-  ]);
+// التبديل بين المنتجات والخدمات
+document.getElementById("productsTab").addEventListener("click", () => {
+  document.getElementById("productsSection").classList.remove("hidden");
+  document.getElementById("servicesSection").classList.add("hidden");
+  document.getElementById("productsTab").classList.add("active");
+  document.getElementById("servicesTab").classList.remove("active");
 });
 
-function fetchData(containerId, data) {
-  const container = document.getElementById(containerId);
-  container.innerHTML = '';
-  data.forEach(item => {
-    const card = document.createElement('div');
-    card.className = 'item-card';
-    card.innerHTML = `
-      <img src="${item.image}" alt="${item.name}">
-      <div class="item-info">
-        <div class="item-title">${item.name}</div>
-        <div class="item-price">${item.price} ${item.unit || ''}</div>
-        <div class="btns">
-          <button class="btn" onclick="requestQuote('${item.name}')">طلب عرض سعر</button>
-          <button class="btn" onclick="offerQuote('${item.name}')">تقديم عرض سعر</button>
-        </div>
-      </div>
-    `;
-    container.appendChild(card);
-  });
+document.getElementById("servicesTab").addEventListener("click", () => {
+  document.getElementById("servicesSection").classList.remove("hidden");
+  document.getElementById("productsSection").classList.add("hidden");
+  document.getElementById("servicesTab").classList.add("active");
+  document.getElementById("productsTab").classList.remove("active");
+});
+
+// فتح النموذج
+function openForm(productName, type) {
+  document.getElementById("quoteModal").classList.remove("hidden");
+  document.getElementById("modalTitle").innerText =
+    type === "طلب" ? "طلب عرض سعر" : "تقديم عرض سعر";
+  document.getElementById("product").value = productName;
 }
 
-// روابط Google Sheets الوهمية
-const REQUEST_URL = "https://docs.google.com/forms/d/e/fakeRequestForm/viewform";
-const OFFER_URL = "https://docs.google.com/forms/d/e/fakeOfferForm/viewform";
-
-function requestQuote(itemName) {
-  window.open(`${REQUEST_URL}?entry.product=${encodeURIComponent(itemName)}`, '_blank');
+// إغلاق النموذج
+function closeForm() {
+  document.getElementById("quoteModal").classList.add("hidden");
 }
 
-function offerQuote(itemName) {
-  window.open(`${OFFER_URL}?entry.product=${encodeURIComponent(itemName)}`, '_blank');
+// إرسال البيانات إلى Google Sheets
+function submitQuote() {
+  const name = document.getElementById("name").value;
+  const phone = document.getElementById("phone").value;
+  const product = document.getElementById("product").value;
+  const unit = document.getElementById("unit").value;
+  const price = document.getElementById("price").value;
+
+  const data = { name, phone, product, unit, price };
+
+  fetch("https://script.google.com/macros/s/YOUR_FAKE_LINK_HERE/exec", {
+    method: "POST",
+    body: JSON.stringify(data),
+  })
+    .then(() => {
+      alert("تم إرسال البيانات بنجاح ✅");
+      closeForm();
+    })
+    .catch(() => {
+      alert("حدث خطأ أثناء الإرسال ❌");
+    });
 }
