@@ -4,11 +4,8 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>متجر مزارع مريوط</title>
-
-  <!-- الروابط -->
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
 </head>
 
 <body>
@@ -23,7 +20,6 @@
     </div>
   </header>
 
-  <!-- ✅ الشريط المتحرك أسفل الهيدر مباشرة -->
   <div class="offers-bar">
     <div class="offers-track">
       <span>💥 عروض اليوم 💥</span>
@@ -36,9 +32,8 @@
     </div>
   </div>
 
-  <!-- تم تجميع شريط الفلترة و أيقونة العربة في صف واحد -->
   <div class="controls container">
-    <div class="filter-bar" aria-label="فلترة المنتجات">
+    <div class="filter-bar">
       <label for="category">التصنيف:</label>
       <select id="category">
         <option value="all">الكل</option>
@@ -51,7 +46,7 @@
       <button id="filter-btn">تطبيق الفلتر</button>
     </div>
 
-    <div class="cart-icon" aria-hidden="false" title="عربة التسوق">
+    <div class="cart-icon" title="عربة التسوق">
       <a href="store.html" aria-label="فتح عربة التسوق">
         <i class="fas fa-shopping-cart"></i>
         <span class="cart-counter">0</span>
@@ -59,22 +54,14 @@
     </div>
   </div>
 
-   <!-- التبويبات -->
+  <!-- تبويبات -->
   <div class="tabs">
-    <button class="tab-btn active" data-target="products">المنتجات</button>
-    <button class="tab-btn" data-target="services">الخدمات</button>
+    <button class="tab active" id="productsTab">المنتجات</button>
+    <button class="tab" id="servicesTab">الخدمات</button>
   </div>
 
-  <!-- قسم المنتجات -->
   <main class="shop-container">
-    <div class="tabs">
-      <button class="tab active" id="productsTab">المنتجات</button>
-      <button class="tab" id="servicesTab">الخدمات</button>
-    </div>
-     <div id="products" class="products-grid"></div>
-
     <div id="productsSection" class="grid">
-      <!-- أمثلة للمنتجات -->
       <div class="card">
         <img src="potatoes.jpg" alt="بطاطس">
         <h3>بطاطس</h3>
@@ -125,11 +112,12 @@
       <button class="btn send" onclick="submitQuote()">إرسال</button>
       <button class="btn close" onclick="closeForm()">إغلاق</button>
     </div>
+  </div>
 
   <footer class="site-footer">
     <div class="container">© 2025 Mariout Farms</div>
   </footer>
 
-  <script src="public/js/shop.js"></script>
+  <script src="js/shop.js"></script>
 </body>
 </html>
