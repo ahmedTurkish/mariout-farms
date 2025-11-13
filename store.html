@@ -97,22 +97,23 @@
   </main>
 
   <!-- نموذج إرسال العرض -->
-  <div class="modal hidden" id="quoteModal">
-    <div class="modal-content">
-      <h3 id="modalTitle">عرض السعر</h3>
-      <input type="text" id="name" placeholder="الاسم">
-      <input type="text" id="phone" placeholder="رقم الهاتف">
-      <input type="text" id="product" readonly>
-      <select id="unit">
-        <option value="كيلوجرام">كيلوجرام</option>
-        <option value="طن">طن</option>
-        <option value="وحدة">وحدة</option>
-      </select>
-      <input type="number" id="price" placeholder="السعر المقترح (اختياري)">
-      <button class="btn send" onclick="submitQuote()">إرسال</button>
-      <button class="btn close" onclick="closeForm()">إغلاق</button>
-    </div>
+ <div class="modal hidden" id="quoteModal">
+  <div class="modal-content">
+    <h3 id="modalTitle">عرض السعر</h3>
+    <input type="text" id="modalName" placeholder="الاسم">
+    <input type="text" id="modalPhone" placeholder="رقم الهاتف">
+    <input type="text" id="modalProduct" readonly>
+    <select id="modalUnit">
+      <option value="كيلوجرام">كيلوجرام</option>
+      <option value="طن">طن</option>
+      <option value="وحدة">وحدة</option>
+    </select>
+    <input type="number" id="modalPrice" placeholder="السعر المقترح (اختياري)">
+    <button class="btn send" onclick="submitQuote()">إرسال</button>
+    <button class="btn close" onclick="closeForm()">إغلاق</button>
   </div>
+</div>
+
 
   <footer class="site-footer">
     <div class="container">© 2025 Mariout Farms</div>
