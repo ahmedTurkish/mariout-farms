@@ -246,49 +246,113 @@ body {
   background-color: #4caf50;
 }
 
-/* ================================
-   قطاعاتنا
-================================ */
+/* ===== Sections: قطاعاتنا ===== */
+#sections {
+  padding: 60px 20px;
+  background-color: #f6f8f6;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 32px;
+  color: #1e4d2b;
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+
+.section-desc {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 40px;
+  font-size: 16px;
+  color: #444;
+  line-height: 1.6;
+}
+
 .sectors-grid {
-  margin-top: 35px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 25px;
+  justify-items: center;
 }
 
 .sector-card {
   background: #fff;
-  padding: 18px;
-  border-radius: 14px;
+  padding: 20px;
+  border-radius: 16px;
   text-align: center;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.07);
-  transition: 0.3s;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  transition: transform 0.3s, box-shadow 0.3s;
+  opacity: 0;
+  transform: translateY(40px);
 }
 
 .sector-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12);
+  transform: translateY(-8px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.12);
 }
 
 .sector-card img {
   width: 100%;
-  height: 170px;
+  height: 180px;
   object-fit: cover;
   border-radius: 12px;
-  margin-bottom: 12px;
+  margin-bottom: 16px;
+  transition: transform 0.3s;
+}
+
+.sector-card:hover img {
+  transform: scale(1.05);
 }
 
 .sector-card h3 {
-  font-size: 18px;
+  font-size: 20px;
   color: #1e4d2b;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
+  font-weight: 700;
 }
 
 .sector-card p {
-  font-size: 14px;
-  color: #444;
+  font-size: 15px;
+  color: #555;
+  line-height: 1.5;
 }
 
+/* Animation class */
+.scroll-reveal.show {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.8s ease-out;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .sectors-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  #sections {
+    padding: 40px 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .sectors-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section-title {
+    font-size: 26px;
+  }
+
+  .sector-card h3 {
+    font-size: 18px;
+  }
+
+  .sector-card p {
+    font-size: 14px;
+  }
+}
 
 /* ================================
    section
@@ -415,6 +479,7 @@ footer {
     transform: translateY(0);
   }
 }
+
 
 
 
