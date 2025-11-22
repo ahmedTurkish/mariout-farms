@@ -283,8 +283,8 @@ body {
   text-align: center;
   box-shadow: 0 6px 18px rgba(0,0,0,0.08);
   transition: transform 0.3s, box-shadow 0.3s;
-  opacity: 0;
-  transform: translateY(40px);
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .sector-card:hover {
@@ -479,6 +479,7 @@ footer {
     transform: translateY(0);
   }
 }
+
 
 
 
