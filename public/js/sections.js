@@ -1,5 +1,6 @@
-// ===== Reveal on Scroll (مع تأخير للبطاقات) =====
-const scrollElements = document.querySelectorAll(".scroll-reveal, .sector-card");
+// ===== Reveal on Scroll =====
+const scrollElements = document.querySelectorAll(".scroll-reveal");
+const cards = document.querySelectorAll(".sector-card");
 
 const elementInView = (el, offset = 0) => {
   const elementTop = el.getBoundingClientRect().top;
@@ -7,13 +8,23 @@ const elementInView = (el, offset = 0) => {
 };
 
 const handleScrollAnimation = () => {
-  scrollElements.forEach((el, index) => {
+
+  // إظهار العنوان والوصف
+  scrollElements.forEach((el) => {
     if (elementInView(el, 100)) {
-      setTimeout(() => {
-        el.classList.add("show");
-      }, index * 120); // تأخير بسيط لكل عنصر
+      el.classList.add("show");
     }
   });
+
+  // إظهار البطاقات واحدة واحدة
+  cards.forEach((card, index) => {
+    if (elementInView(card, 150)) {
+      setTimeout(() => {
+        card.classList.add("show");
+      }, index * 150);
+    }
+  });
+
 };
 
 window.addEventListener("scroll", handleScrollAnimation);
