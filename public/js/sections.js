@@ -1,29 +1,20 @@
-// ===== Reveal on Scroll =====
-const scrollElements = document.querySelectorAll(".scroll-reveal");
+// ===== Reveal on Scroll (مع تأخير للبطاقات) =====
+const scrollElements = document.querySelectorAll(".scroll-reveal, .sector-card");
 
 const elementInView = (el, offset = 0) => {
   const elementTop = el.getBoundingClientRect().top;
   return elementTop <= (window.innerHeight || document.documentElement.clientHeight) - offset;
 };
 
-const displayScrollElement = (element) => {
-  element.classList.add("show");
-};
-
 const handleScrollAnimation = () => {
-  scrollElements.forEach((el) => {
+  scrollElements.forEach((el, index) => {
     if (elementInView(el, 100)) {
-      displayScrollElement(el);
+      setTimeout(() => {
+        el.classList.add("show");
+      }, index * 120); // تأخير بسيط لكل عنصر
     }
   });
 };
 
-window.addEventListener("scroll", () => {
-  handleScrollAnimation();
-});
-
-// Initial check
+window.addEventListener("scroll", handleScrollAnimation);
 handleScrollAnimation();
-
-
-
