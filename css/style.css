@@ -276,6 +276,21 @@ body {
   justify-items: center;
 }
 
+/* حالة البداية قبل الظهور */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease-out;
+}
+
+/* حالة الظهور */
+.scroll-reveal.show {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.8s ease-out;
+}
+
+/* بطاقات القطاعات */
 .sector-card {
   background: #fff;
   padding: 20px;
@@ -316,13 +331,6 @@ body {
   font-size: 15px;
   color: #555;
   line-height: 1.5;
-}
-
-/* Animation class */
-.scroll-reveal.show {
-  opacity: 1;
-  transform: translateY(0);
-  transition: all 0.8s ease-out;
 }
 
 /* ===== Responsive ===== */
@@ -479,6 +487,7 @@ footer {
     transform: translateY(0);
   }
 }
+
 
 
 
