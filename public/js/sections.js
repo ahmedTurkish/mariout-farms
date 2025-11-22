@@ -1,6 +1,4 @@
 // ===== Reveal on Scroll =====
-const scrollElements = document.querySelectorAll(".scroll-reveal");
-const cards = document.querySelectorAll(".sector-card");
 
 const elementInView = (el, offset = 0) => {
   const elementTop = el.getBoundingClientRect().top;
@@ -8,16 +6,18 @@ const elementInView = (el, offset = 0) => {
 };
 
 const handleScrollAnimation = () => {
-  // إظهار العنوان والوصف
+  // إظهار العناصر مع class scroll-reveal (العنوان والوصف)
+  const scrollElements = document.querySelectorAll(".scroll-reveal:not(.show)");
   scrollElements.forEach((el) => {
-    if (elementInView(el, 100) && !el.classList.contains("show")) {
+    if (elementInView(el, 100)) {
       el.classList.add("show");
     }
   });
 
-  // إظهار البطاقات واحدة واحدة
+  // إظهار البطاقات واحدة تلو الأخرى
+  const cards = document.querySelectorAll(".sector-card:not(.show)");
   cards.forEach((card, index) => {
-    if (elementInView(card, 150) && !card.classList.contains("show")) {
+    if (elementInView(card, 100)) {
       setTimeout(() => {
         card.classList.add("show");
       }, index * 150);
@@ -25,7 +25,14 @@ const handleScrollAnimation = () => {
   });
 };
 
+// تشغيل عند التمرير
 window.addEventListener("scroll", handleScrollAnimation);
-// استدعاء أولي عند تحميل الصفحة
-window.addEventListener("DOMContentLoaded", handleScrollAnimation);
+
+// تشغيل عند تحميل الصفحة
+window.addEventListener("load", () => {
+  // تأخير بسيط للتأكد من تحميل كل شيء
+  setTimeout(handleScrollAnimation, 100);
+});
+
+// استدعاء فوري
 handleScrollAnimation();
