@@ -75,6 +75,27 @@
     </div>
   </div>
 </section>
+<script>
+const scrollElements = document.querySelectorAll(".scroll-reveal, .sector-card, .org-node");
+
+const elementInView = (el, offset = 0) => {
+  const elementTop = el.getBoundingClientRect().top;
+  return elementTop <= (window.innerHeight || document.documentElement.clientHeight) - offset;
+};
+
+const handleScrollAnimation = () => {
+  scrollElements.forEach((el, index) => {
+    if (elementInView(el, 100)) {
+      setTimeout(() => {
+        el.classList.add("show");
+      }, index * 120);
+    }
+  });
+};
+
+window.addEventListener("scroll", handleScrollAnimation);
+handleScrollAnimation();
+</script>
 
 </body>
 </html>
