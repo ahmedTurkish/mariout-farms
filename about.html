@@ -95,13 +95,13 @@
 
     </div>
   </div>
-</section>
-<script>
+</section><script>
+// عناصر الأنيميشن
 const scrollElements = document.querySelectorAll(".scroll-reveal, .sector-card, .org-node");
 
 const elementInView = (el, offset = 0) => {
   const elementTop = el.getBoundingClientRect().top;
-  return elementTop <= (window.innerHeight || document.documentElement.clientHeight) - offset;
+  return elementTop <= (window.innerHeight - offset);
 };
 
 const handleScrollAnimation = () => {
@@ -110,27 +110,41 @@ const handleScrollAnimation = () => {
       setTimeout(() => {
         el.classList.add("show");
       }, index * 120);
-      
-      const menuToggle = document.querySelector('.menu-toggle');
-    const navLinks = document.querySelector('.nav-links');
-    menuToggle.addEventListener('click', (e) => {
-      e.stopPropagation();
-      navLinks.classList.toggle('active');
-    });
-    document.addEventListener('click', (e) => {
-      if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
-        navLinks.classList.remove('active');
-      }
-    });
-    document.querySelectorAll('.nav-links a').forEach(link => {
-      link.addEventListener('click', () => {
-        navLinks.classList.remove('active');
     }
   });
 };
 
+// تشغيل الأنيميشن أثناء التمرير
 window.addEventListener("scroll", handleScrollAnimation);
 handleScrollAnimation();
+
+
+// ==========================
+// كود الهامبرجر (المينيو)
+// ==========================
+
+const menuToggle = document.querySelector('.menu-toggle');
+const navLinks = document.querySelector('.nav-links');
+
+// فتح وإغلاق القائمة
+menuToggle.addEventListener('click', (e) => {
+  e.stopPropagation();
+  navLinks.classList.toggle('active');
+});
+
+// إغلاق القائمة عند الضغط خارجها
+document.addEventListener('click', (e) => {
+  if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
+    navLinks.classList.remove('active');
+  }
+});
+
+// إغلاق القائمة عند الضغط على رابط
+document.querySelectorAll('.nav-links a').forEach(link => {
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('active');
+  });
+});
 </script>
 
 </body>
