@@ -11,16 +11,29 @@
 <body>
 
   <!-- Header -->
-  <header class="navbar">
-    <a href="index.html" class="logo">
-      <img src="assets/logo/MIAD.png" alt="Logo">
-    </a>
-    <ul class="nav-links">
-      <li><a href="index.html">الرئيسية</a></li>
-      <li><a href="about.html">من نحن</a></li>
-      <li><a href="store.html">منتجاتنا</a></li>
-      <li><a href="contact.html" class="active">تواصل معنا</a></li>
-    </ul>
+  <header>
+    <nav class="navbar">
+      <a href="index.html" class="logo">
+        <img src="assets/logo/MIAD.png" alt="Mariout Farms Logo">
+      </a>
+      <button class="menu-toggle" id="menu-toggle">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html#hero">الرئيسية</a></li>
+        <li><a href="about.html">من نحن</a></li>
+        <li><a href="store.html">منتجاتنا</a></li>
+        <li><a href="contact.html">تواصل معنا</a></li>
+      </ul>
+      <div class="datetime-container">
+        <div class="time-day">
+          <div class="time" id="time">00:00:00</div>
+          <div class="separator"></div>
+          <div class="day" id="day">Monday</div>
+        </div>
+        <div class="date" id="date">January 1, 2025</div>
+      </div>
+    </nav>
   </header>
 
   <!-- Hero Section -->
