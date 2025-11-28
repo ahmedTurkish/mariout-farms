@@ -26,8 +26,6 @@ body {
 }
 
 /* اللوجو */
-
-/* اللوجو */
 .logo {
   display: flex;
   align-items: center;
@@ -141,7 +139,7 @@ body {
   .nav-links li a:hover {
     background-color: #3fbf6a;
   }
-
+}
 /* ===== Hero Section ===== */
 .contact-hero {
   background: url('../assets/slides/contact-bg.jpg') center/cover no-repeat;
