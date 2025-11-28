@@ -13,7 +13,6 @@ body {
 
 /* ===== Header ===== */
 .navbar {
-.navbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -142,6 +141,7 @@ body {
   .nav-links li a:hover {
     background-color: #3fbf6a;
   }
+}
 /* ===== Organziational Structure ===== */
 .org-structure {
   padding: 60px 20px;
