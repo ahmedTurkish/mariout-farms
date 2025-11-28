@@ -134,5 +134,34 @@
   </footer>
 
   <script src="public/js/shop.js"></script>
+  
+<script>
+  // ==========================
+// كود الهامبرجر (المينيو)
+// ==========================
+
+const menuToggle = document.querySelector('.menu-toggle');
+const navLinks = document.querySelector('.nav-links');
+
+// فتح وإغلاق القائمة
+menuToggle.addEventListener('click', (e) => {
+  e.stopPropagation();
+  navLinks.classList.toggle('active');
+});
+
+// إغلاق القائمة عند الضغط خارجها
+document.addEventListener('click', (e) => {
+  if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
+    navLinks.classList.remove('active');
+  }
+});
+
+// إغلاق القائمة عند الضغط على رابط
+document.querySelectorAll('.nav-links a').forEach(link => {
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('active');
+  });
+});
+</script>
 </body>
 </html>
