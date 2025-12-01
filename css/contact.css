@@ -142,7 +142,7 @@ body {
 }
 /* ===== Hero Section ===== */
 .contact-hero {
-  background: url('../assets/slides/contact-bg.jpg') center/cover no-repeat;
+  background: url('../assets/contact.jpg') center/cover no-repeat;
   height: 50vh;
   display: flex;
   align-items: center;
