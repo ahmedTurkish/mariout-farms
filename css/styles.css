@@ -1,4 +1,20 @@
-/* ===== الهيدر ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Share Tech Mono', 'Cairo', sans-serif;
+}
+
+body {
+  background-color: #f8f9f4;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* ================================
+   الشريط العلوي (Navbar)
+================================ */
+/* الشريط الرئيسي */
 .navbar {
   display: flex;
   align-items: center;
@@ -68,7 +84,7 @@
   cursor: pointer;
   display: none;
   position: absolute;
-  right: 15px; /* تم تغييره ليتوافق مع rtl */
+  left: 15px; /* ← يجعل الزر في أقصى اليسار */
   top: 15px;
   z-index: 1001;
 }
@@ -92,7 +108,7 @@
   .nav-links {
     position: absolute;
     top: 60px;
-    right: 15px; /* تم تغييره ليتوافق مع rtl */
+    left: 15px;
     width: 220px;
     background-color: #2f8f4a;
     border-radius: 10px;
@@ -128,6 +144,7 @@
   .nav-links li a:hover {
     background-color: #3fbf6a;
   }
+}
 
 /* ===== الشريط المتحرك أسفل الهيدر ===== */
 .offers-bar {
